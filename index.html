@@ -1,11 +1,25 @@
 <script>
     // todo list
     // fitur todo list
-    
+    class ToDo {
+        constructor(_id, _activity, _date) {
+            this.id = _id,
+                this.activity = _activity,
+                this.date = _date
+        }
+    };
+    class IsDone {
+        constructor(_id, _activity, _date) {
+            this.id = _id,
+                this.activity = _activity,
+                this.date = _date
+        }
+    };
+
     // audra
     // menambah data //
-    
-    
+
+
     // menghapus data //
 
     // khalid
@@ -13,7 +27,15 @@
     // list todo
     // berdasarkan yg telah selesai/yg belum selesai
     // berdasarkan rentang tanggal mulai dan akhir
-    
+    const lihatData = (input1, input2) => {
+        let result = "";
+        if (input1.toUpperCase() === "A") {
+            ToDo.forEach((value, index) => {
+            });
+
+        }
+    };
+    alert(result)
 
     // edit data todo //
 </script>
