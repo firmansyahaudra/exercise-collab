@@ -1,73 +1,93 @@
-<script>
-    // todo list
-    // fitur todo list
-    class list {
-        constructor(_id, _date, _activity, _status) {
-            this.id = _id,
-                this.date = _date,
-                this.activity = _activity,
-                this.status = _status
-        }
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    const kegiatan = [
-        new list(1, "2023-09-11", "memasak", "toDo"),
-        new list(2, "2023-09-16", "push rank", "toDo"),
-        new list(3, "2023-09-20", "berlari", "isDone"),
-    ];
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-
-    // audra
-    // menambah data //
-
-
-    // menghapus data //
-
-    // khalid
-    // menampilkan data //
-    // list todo
-    // berdasarkan yg telah selesai/yg belum selesai
-    // berdasarkan rentang tanggal mulai dan akhir
-    const lihatData = () => {
-        let result = "";
-        kegiatan.forEach((value, index) => {
-            result += `
-                    ${index + 1}. ${value.id} : ${value.date} ==> ${value.activity} "${value.status}"`;
-            if (index < kegiatan.length - 1) {
-                result += `\n`;
+<body>
+    <script>
+        // todo list
+        // fitur todo list
+        class list {
+            constructor(_id, _date, _activity, _status) {
+                this.id = _id,
+                    this.date = _date,
+                    this.activity = _activity,
+                    this.status = _status
             }
-        });
-        return result;
-    }
-
-    else if (menuToDo == "2") {
-
-        alert(lihatData(kegiatan));
-
-
-    } else if (menuToDo == "3") {
-        console.log(`masuk menu todo 3`);
-        const selectActivity = prompt(`Pilih aktivitas yang akan diubah\n ${lihatData()}`);
-
-        const selectProperty = prompt(`
-    Pilih data yang akan diubah\n 1. id\n 2. date\n 3. aktivitas\n 4. status
-    `);
-        const editList = prompt(`Edit disini :`);
-
-        switch (selectProperty) {
-            case "1":
-                kegiatan[selectActivity - 1].id = editList;
-                break;
-            case "2":
-                kegiatan[selectActivity - 1].date = editList;
-                break;
-            case "3":
-                kegiatan[selectActivity - 1].activity = editList;
-                break;
-            case "4":
-                kegiatan[selectActivity - 1].status = editList;
-                break;
         }
 
-    }
-</script>
+        const kegiatan = [
+            new list(1, "2023-09-11", "memasak", "toDo"),
+            new list(2, "2023-09-16", "push rank", "toDo"),
+            new list(3, "2023-09-20", "berlari", "isDone"),
+        ];
+
+        // audra
+        // menambah data //
+
+
+        // menghapus data //
+
+        // khalid
+        // menampilkan data //
+        // list todo
+        // berdasarkan yg telah selesai/yg belum selesai
+        // berdasarkan rentang tanggal mulai dan akhir
+
+
+        while (true) {
+            const menuToDo = prompt("Pilih tindakan:\n 1. Tambah data\n 2. Lihat data\n 3. Edit data\n 4. Hapus data\n 5. Keluar");
+            // fungsi lihat data
+            const lihatData = () => {
+                let result = "";
+                kegiatan.forEach((value, index) => {
+                    result += `
+                    ${index + 1}. ${value.id} : ${value.date} ==> ${value.activity} "${value.status}"`;
+                    if (index < kegiatan.length - 1) {
+                        result += `\n`;
+                    }
+                });
+                return result;
+            }
+
+            if (menuToDo == "2") {
+
+                alert(lihatData(kegiatan));
+
+
+            } else if (menuToDo == "3") {
+                console.log(`masuk menu todo 3`);
+                const selectActivity = prompt(`Pilih aktivitas yang akan diubah\n ${lihatData()}`);
+
+                const selectProperty = prompt(`
+                    Pilih data yang akan diubah\n 1. id\n 2. date\n 3. aktivitas\n 4. status
+                    `);
+                const editList = prompt(`Edit disini :`);
+
+                switch (selectProperty) {
+                    case "1":
+                        kegiatan[selectActivity - 1].id = editList;
+                        break;
+                    case "2":
+                        kegiatan[selectActivity - 1].date = editList;
+                        break;
+                    case "3":
+                        kegiatan[selectActivity - 1].activity = editList;
+                        break;
+                    case "4":
+                        kegiatan[selectActivity - 1].status = editList;
+                        break;
+                }
+
+            } else if (menuToDo == "5") {
+                break;
+            }
+        }
+    </script>
+</body>
+
+</html>
