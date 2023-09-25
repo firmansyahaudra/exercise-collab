@@ -25,11 +25,6 @@
             new list(2, "2023-09-16", "push rank", "toDo"),
             new list(3, "2023-09-20", "berlari", "isDone"),
         ];
-
-        // audra
-        // menambah data //
-
-
         // menghapus data //
 
         // khalid
@@ -54,8 +49,24 @@
                 return result;
             }
 
-            if (menuToDo == "2") {
-
+            
+ // audra
+        // menambah data //
+if (menu == "1") {
+    const id = parseInt(prompt("Masukkan ID aktivitas (angka):"));
+    const date = prompt("Tambahkan tanggal (format: yyyy-mm-dd):");
+    const activity = prompt("Tambahkan deskripsi aktivitas:");
+    const status = prompt("Tambahkan status aktivitas (toDo / isDone)");
+    if (!isNaN(id) && activity && date) {
+      const newTask = new list(id, date, activity, status);
+      kegiatan.push(newTask);
+      alert(`Aktivitas berhasil ditambahkan!`);
+    } else {
+      alert(
+        "ID, deskripsi, dan tanggal tugas tidak boleh kosong dan ID harus berupa angka."
+      );
+    }
+  } else if (menuToDo == "2") {
                 alert(lihatData(kegiatan));
 
 
@@ -83,7 +94,30 @@
                         break;
                 }
 
-            } else if (menuToDo == "5") {
+            } // menghapus data //
+  else if (menuToDo == "4") {
+    if (kegiatan.length == "0") {
+      alert("Tidak ada aktivitas yang tersedia untuk dihapus.");
+    }
+
+    const taskIndex =
+      parseInt(prompt("Nomor aktivitas yang ingin dihapus:")) - 1;
+
+    if (isNaN(taskIndex) || taskIndex < 0 || taskIndex >= kegiatan.length) {
+      alert("Nomor aktivitas tidak valid.");
+    }
+
+    const confirmDelete = confirm(
+      `Apakah Anda yakin ingin menghapus aktivitas "${kegiatan[taskIndex].activity}"?`
+    );
+
+    if (confirmDelete == true) {
+      kegiatan.splice(taskIndex, 1);
+      alert("Aktivitas berhasil dihapus!");
+    } else {
+      alert("Penghapusan aktivitas dibatalkan.");
+    }
+  } else if (menuToDo == "5") {
                 break;
             }
         }
