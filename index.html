@@ -1,19 +1,51 @@
 <script>
-    // todo list
-    // fitur todo list
-    
-    // audra
-    // menambah data //
-    
-    
-    // menghapus data //
+  // audra
+  // menu tambah data //
+  if (menu == "1") {
+    const id = parseInt(prompt("Masukkan ID aktivitas (angka):"));
+    const date = prompt("Tambahkan tanggal (format: yyyy-mm-dd):");
+    const activity = prompt("Tambahkan deskripsi aktivitas:");
+    const status = prompt("Tambahkan status aktivitas (toDo / isDone)");
+    if (!isNaN(id) && activity && date) {
+      const newTask = new list(id, date, activity, status);
+      kegiatan.push(newTask);
+      alert(`Aktivitas berhasil ditambahkan!`);
+    } else {
+      alert(
+        "ID, deskripsi, dan tanggal tugas tidak boleh kosong dan ID harus berupa angka."
+      );
+    }
+  }
 
-    // khalid
-    // menampilkan data //
-    // list todo
-    // berdasarkan yg telah selesai/yg belum selesai
-    // berdasarkan rentang tanggal mulai dan akhir
-    
+  // menghapus data //
+  else if (menuToDo == "4") {
+    if (kegiatan.length == "0") {
+      alert("Tidak ada tugas yang tersedia untuk dihapus.");
+    }
 
-    // edit data todo //
+    const taskIndex = parseInt(prompt("Nomor tugas yang ingin dihapus:")) - 1;
+
+    if (isNaN(taskIndex) || taskIndex < 0 || taskIndex >= kegiatan.length) {
+      alert("Nomor tugas tidak valid.");
+    }
+
+    const confirmDelete = confirm(
+      `Apakah Anda yakin ingin menghapus tugas "${kegiatan[taskIndex].activity}"?`
+    );
+
+    if (confirmDelete == true) {
+      kegiatan.splice(taskIndex, 1);
+      alert("Tugas berhasil dihapus!");
+    } else {
+      alert("Penghapusan tugas dibatalkan.");
+    }
+  }
+
+  // khalid
+  // menampilkan data //
+  // list todo
+  // berdasarkan yg telah selesai/yg belum selesai
+  // berdasarkan rentang tanggal mulai dan akhir
+
+  // edit data todo //
 </script>
