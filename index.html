@@ -40,29 +40,34 @@
         return result;
     }
 
-    const pilihStatus = prompt(`Aktivitas yang ingin ditampilkan :\n 1. To Do\n 2. Is Done\n 3. Semua aktivitas`);
+    else if (menuToDo == "2") {
 
-    // edit data todo //
-    const selectActivity = prompt(`Pilih aktivitas yang akan diubah\n ${lihatData()}`);
+        alert(lihatData(kegiatan));
 
-    const selectProperty = prompt(`
+
+    } else if (menuToDo == "3") {
+        console.log(`masuk menu todo 3`);
+        const selectActivity = prompt(`Pilih aktivitas yang akan diubah\n ${lihatData()}`);
+
+        const selectProperty = prompt(`
     Pilih data yang akan diubah\n 1. id\n 2. date\n 3. aktivitas\n 4. status
     `);
-    const editList = prompt(`Edit disini :`);
+        const editList = prompt(`Edit disini :`);
 
-    switch (selectProperty) {
-        case "1":
-            kegiatan[selectActivity - 1].id = editList;
-            break;
-        case "2":
-            kegiatan[selectActivity - 1].date = editList;
-            break;
-        case "3":
-            kegiatan[selectActivity - 1].activity = editList;
-            break;
-        case "4":
-            kegiatan[selectActivity - 1].status = editList;
-            break;
+        switch (selectProperty) {
+            case "1":
+                kegiatan[selectActivity - 1].id = editList;
+                break;
+            case "2":
+                kegiatan[selectActivity - 1].date = editList;
+                break;
+            case "3":
+                kegiatan[selectActivity - 1].activity = editList;
+                break;
+            case "4":
+                kegiatan[selectActivity - 1].status = editList;
+                break;
+        }
+
     }
-
 </script>
