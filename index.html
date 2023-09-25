@@ -1,20 +1,21 @@
 <script>
     // todo list
     // fitur todo list
-    class ToDo {
-        constructor(_id, _activity, _date) {
+    class list {
+        constructor(_id, _date, _activity, _status) {
             this.id = _id,
+                this.date = _date,
                 this.activity = _activity,
-                this.date = _date
+                this.status = _status
         }
-    };
-    class IsDone {
-        constructor(_id, _activity, _date) {
-            this.id = _id,
-                this.activity = _activity,
-                this.date = _date
-        }
-    };
+    }
+
+    const kegiatan = [
+        new list(1, "2023-09-11", "memasak", "toDo"),
+        new list(2, "2023-09-16", "push rank", "toDo"),
+        new list(3, "2023-09-20", "berlari", "isDone"),
+    ];
+
 
     // audra
     // menambah data //
@@ -27,15 +28,41 @@
     // list todo
     // berdasarkan yg telah selesai/yg belum selesai
     // berdasarkan rentang tanggal mulai dan akhir
-    const lihatData = (input1, input2) => {
+    const lihatData = () => {
         let result = "";
-        if (input1.toUpperCase() === "A") {
-            ToDo.forEach((value, index) => {
-            });
+        kegiatan.forEach((value, index) => {
+            result += `
+                    ${index + 1}. ${value.id} : ${value.date} ==> ${value.activity} "${value.status}"`;
+            if (index < kegiatan.length - 1) {
+                result += `\n`;
+            }
+        });
+        return result;
+    }
 
-        }
-    };
-    alert(result)
+    const pilihStatus = prompt(`Aktivitas yang ingin ditampilkan :\n 1. To Do\n 2. Is Done\n 3. Semua aktivitas`);
 
     // edit data todo //
+    const selectActivity = prompt(`Pilih aktivitas yang akan diubah\n ${lihatData()}`);
+
+    const selectProperty = prompt(`
+    Pilih data yang akan diubah\n 1. id\n 2. date\n 3. aktivitas\n 4. status
+    `);
+    const editList = prompt(`Edit disini :`);
+
+    switch (selectProperty) {
+        case "1":
+            kegiatan[selectActivity - 1].id = editList;
+            break;
+        case "2":
+            kegiatan[selectActivity - 1].date = editList;
+            break;
+        case "3":
+            kegiatan[selectActivity - 1].activity = editList;
+            break;
+        case "4":
+            kegiatan[selectActivity - 1].status = editList;
+            break;
+    }
+
 </script>
